@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\view;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(view::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::get('/layout/navbar', 'navbar')->name('layout.navbar');
 });
+
